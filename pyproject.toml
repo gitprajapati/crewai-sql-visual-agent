@@ -1,0 +1,23 @@
+[project]
+name = "crew-sql-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "crewai-tools[mcp]>=0.47.1",
+    "cryptography>=45.0.4",
+    "dotenv>=0.9.9",
+    "faker>=37.4.0",
+    "google-generativeai>=0.8.5",
+    "langchain-google-genai>=2.0.10",
+    "langchain-groq>=0.3.2",
+    "mcp>=1.9.4",
+    "mysql-connector-python>=9.3.0",
+    "pandas>=2.3.0",
+    "plotly>=6.1.2",
+    "pymysql>=1.1.1",
+    "sqlalchemy>=2.0.41",
+    "streamlit>=1.46.0",
+    "tqdm>=4.67.1",
+]
