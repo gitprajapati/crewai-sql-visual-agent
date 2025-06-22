@@ -1,6 +1,7 @@
 # Text2SQL AI Assistant with Visualization
 
 A powerful AI agent that transforms natural language questions into SQL queries, executes them against a database, and generates interactive visualizations. Built with CrewAI, Streamlit, and Plotly.
+![Alt](https://github.com/gitprajapati/crewai-sql-visual-agent/blob/main/application_screenshot.png)
 
 ## Features
 
