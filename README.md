@@ -106,6 +106,66 @@ self.llm = LLM(
 
 ## Features Overview
 
+
+Here's the Mermaid diagram of your Text2SQL agent workflow based on the provided code:
+
+```mermaid
+graph TD
+    A[User Question] --> B[Text2SQLAgent.process_question]
+    B --> C[Generate SQL with LLM]
+    C --> D[Extract SQL from Response]
+    D --> E[Validate & Optimize Query]
+    E --> F[Execute Query with Retry]
+    F --> G{Success?}
+    G -->|Yes| H[Analyze Results]
+    G -->|No| I[Attempt Query Fix]
+    I --> F
+    H --> J[Prepare Visualization Data]
+    J --> K[Return Results]
+
+    subgraph SQL Generation
+        C --> C1[SQLGenerator Agent]
+        C1 --> C2[Create SQL Generation Task]
+        C2 --> C3[Crew Execution]
+    end
+
+    subgraph Validation
+        E --> E1[SQLValidator Agent]
+        E1 --> E2[Create Validation Task]
+        E2 --> E3[Crew Execution]
+    end
+
+    subgraph Analysis
+        H --> H1[DataAnalyst Agent]
+        H1 --> H2[Create Analysis Task]
+        H2 --> H3[Crew Execution]
+    end
+
+    subgraph Execution
+        F --> F1[SQLConnectionTool]
+        F1 --> F2[Safety Check]
+        F2 --> F3[Execute Query]
+        F3 --> F4{Error?}
+        F4 -->|No| G
+        F4 -->|Yes| F5[Retry Mechanism]
+    end
+
+    subgraph Visualization
+        J --> J1[Determine Chart Type]
+        J1 --> J2[Generate Plotly Figure]
+    end
+
+    A --> C
+    D --> E
+    E --> F
+    F --> G
+    G -->|Yes| H
+    H --> J
+    J --> K[Display Results]
+    G -->|No| I
+    I --> C1
+```
+
 ### Natural Language Processing
 ```mermaid
 graph LR
@@ -147,3 +207,11 @@ B -->|Multi-Variable| F[Scatter Plots]
 **Visualization Issues:**
 - Try different chart types from dropdown
 - Check data types in results
+
+
+
+
+
+
+
+
